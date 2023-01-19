@@ -134,7 +134,7 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
     );
   };
 
-  const [stateText, setStateText] = useState('');
+  const [stateText, setStateText] = useState(props.defaultValue);
   const [dataSource, setDataSource] = useState(buildRowsFromResults([]));
   const [listViewDisplayed, setListViewDisplayed] = useState(
     props.listViewDisplayed === 'auto' ? false : props.listViewDisplayed,
@@ -849,6 +849,7 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
 });
 
 GooglePlacesAutocomplete.propTypes = {
+  defaultValue: PropTypes.string,
   autoFillOnNotFound: PropTypes.bool,
   currentLocation: PropTypes.bool,
   currentLocationLabel: PropTypes.string,
@@ -902,6 +903,7 @@ GooglePlacesAutocomplete.propTypes = {
 };
 
 GooglePlacesAutocomplete.defaultProps = {
+  defaultValue: '',
   autoFillOnNotFound: false,
   currentLocation: false,
   currentLocationLabel: 'Current location',
